@@ -23,6 +23,7 @@ Devise.setup do |config|
   require 'omniauth-facebook'
   require 'omniauth-twitter'
   require 'omniauth-linkedin'
+  require 'omniauth-google-oauth2'
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
@@ -234,6 +235,7 @@ Devise.setup do |config|
   config.omniauth :facebook, 'APP_ID', 'APP_SECRET'
   config.omniauth :twitter, 'APP_ID', 'APP_SECRET'
   config.omniauth :linkedin, 'APP_ID', 'APP_SECRET'
+  config.omniauth :google_oauth2, "APP_ID", "APP_SECRET", { access_type: "offline", approval_prompt: "" }
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
