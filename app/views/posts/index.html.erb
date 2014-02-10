@@ -1,37 +1,34 @@
-<% if current_user %>
+<% if user_signed_in? %>
 
-  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+	<h1>Listing posts</h1>
 
-  <h1>Listing posts</h1>
+	<table>
+		<thead>
+			<tr>
+			<th>Post name</th>
+			<th>Comment</th>
+			<th>Author</th>
+			<th></th>
+			<th></th>
+			<th></th>
+			</tr>
+		</thead>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Post name</th>
-        <th>Comment</th>
-        <th>Author</th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
+		<tbody>
+		<% @posts.each do |post| %>
+			<tr>
+				<td><%= post.post_name %></td>
+				<td><%= post.comment %></td>
+				<td><%= post.author %></td>
+				<td><%= link_to 'Show', post %></td>
+				<td><%= link_to 'Edit', edit_post_path(post) %></td>
+				<td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
 
-    <tbody>
-      <% @posts.each do |post| %>
-        <tr>
-          <td><%= post.post_name %></td>
-          <td><%= post.comment %></td>
-          <td><%= post.author %></td>
-          <td><%= link_to 'Show', post %></td>
-          <td><%= link_to 'Edit', edit_post_path(post) %></td>
-          <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+	<br>
 
-  <br>
-
-  <%= link_to 'New Post', new_post_path %>
-
+	<%= link_to 'New Post', new_post_path %>
 <% end %>
