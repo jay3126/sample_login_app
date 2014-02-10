@@ -22,6 +22,7 @@ Devise.setup do |config|
   require 'devise/orm/active_record'
   require 'omniauth-facebook'
   require 'omniauth-twitter'
+  require 'omniauth-linkedin'
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
@@ -232,6 +233,7 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
   config.omniauth :facebook, 'APP_ID', 'APP_SECRET'
   config.omniauth :twitter, 'APP_ID', 'APP_SECRET'
+  config.omniauth :linkedin, 'APP_ID', 'APP_SECRET'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
