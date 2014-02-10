@@ -18,6 +18,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-linkedin'
 gem 'omniauth-google-oauth2'
+gem 'feedzirra'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

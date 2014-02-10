@@ -2,7 +2,11 @@ SampleApp::Application.routes.draw do
 
   root 'posts#index'
 
-  resources :posts
+  resources :posts do
+    collection do
+      get 'fetch_feeds_from_external_stes'
+    end
+  end
 
   devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
   # The priority is based upon order of creation: first created -> highest priority.

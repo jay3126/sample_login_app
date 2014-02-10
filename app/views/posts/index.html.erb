@@ -31,4 +31,12 @@
 	<br>
 
 	<%= link_to 'New Post', new_post_path %>
+	</br></br>
+
+	<% @entry.each do |feed| %>
+		<%= link_to "#{feed.title.sanitize}", "#{feed.url}", :target => "_blank" %>
+		<%= feed.author %>
+		<%= feed.published %>
+		<%= feed.categories %>
+	<%end%>
 <% end %>
