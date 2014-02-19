@@ -29,14 +29,28 @@
 	</table>
 
 	<br>
-
 	<%= link_to 'New Post', new_post_path %>
 	</br></br>
 
-	<% @entry.each do |feed| %>
-		<%= link_to "#{feed.title.sanitize}", "#{feed.url}", :target => "_blank" %>
-		<%= feed.author %>
-		<%= feed.published %>
-		<%= feed.categories %>
-	<%end%>
+	<h1>Feeds</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Author</th>
+				<th>Published</th>
+				<th>Categories</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<% @entry.each do |feed| %>
+				<tr>
+					<td><%= link_to "#{feed.title.sanitize}", "#{feed.url}", :target => "_blank" %></td>
+					<td><%= feed.author %></td>
+					<td><%= feed.published %></td>
+					<td><%= feed.categories.join(', ') %></td>
+				</tr>
+			<% end %>
+		</tbody>
 <% end %>

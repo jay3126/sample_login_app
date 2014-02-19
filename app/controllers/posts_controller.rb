@@ -6,6 +6,8 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
+    feed = Feedzirra::Feed.fetch_and_parse("http://feeds.feedburner.com/TechCrunch/gaming")
+    @entry = feed.entries
   end
 
   # GET /posts/1
@@ -60,11 +62,6 @@ class PostsController < ApplicationController
       format.html { redirect_to posts_url }
       format.json { head :no_content }
     end
-  end
-
-  def fetch_feeds_from_external_stes
-    feed = Feedzirra::Feed.fetch_and_parse("http://feeds.feedburner.com/TechCrunch/gaming")
-    @entry = feed.entries
   end
 
   private
